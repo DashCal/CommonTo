@@ -1,1 +1,71 @@
-
+{
+    "Type": "Primary",
+    "Pairs": [
+        {
+            "name": "GitHub",
+            "username": "LocalWu",
+            "status": true,
+            "url": "https://github.com/LocalWu"
+        },
+        {
+            "name": "Gitee",
+            "username": "LocalWu",
+            "status": true,
+            "url": "https://gitee.com/LocalWu"
+        },
+        {
+            "name": "CSDN",
+            "username": "LocalWu",
+            "status": true,
+            "url": "https://blog.csdn.net/qq_17440007"
+        },
+        {
+            "name": "Bilibili",
+            "username": "DashLocal",
+            "status": true,
+            "url": "https://space.bilibili.com/3546779958118774"
+        },
+        {
+            "name": "RedBook",
+            "username": "/",
+            "status": false,
+            "url": "http://localwu.top/error"
+        },
+        {
+            "name": "Are.na",
+            "username": "localwu",
+            "status": true,
+            "url": "https://www.are.na/localwu"
+        },
+        {
+            "name": "Zcool",
+            "username": "LocalWu",
+            "status": true,
+            "url": "https://www.zcool.com.cn/u/23326090"
+        },
+        {
+            "name": "Figma",
+            "username": "/",
+            "status": false,
+            "url": "http://localwu.top/error"
+        },
+        {
+            "name": "Weibo",
+            "username": "LocalAtHere",
+            "status": true,
+            "url": "https://weibo.com/u/7750833298"
+        },
+        {
+            "name": "Ins",
+            "username": "/",
+            "status": false,
+            "url": "http://localwu.top/error"
+        },
+        {
+            "name": "X",
+            "username": "/",
+            "status": false,
+            "url": "http://localwu.top/error"
+        }
+    ]
+}
