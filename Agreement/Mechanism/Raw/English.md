@@ -1,7 +1,7 @@
 # The Whitelist Mechanism, Application And Rules of Link Redirection
 
 <p align="right" style="font-weight:600;">
-<a href="../">中文版本 (Chinese Version)</a>
+<a href="../">中文版本 (Chinese Version) →</a>
 </p>
 
 to.LocalWu.top (JumpTo) is the link forwarding provider.

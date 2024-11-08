@@ -1,7 +1,7 @@
 # 链接跳转白名单机制、申请方式及规则
 
 <p align="right" style="font-weight:600;">
-<a href="./English">English Version (英文版本)</a>
+<a href="./English">English Version (英文版本) →</a>
 </p>
 
 链接跳转提供方 (JumpTo) to.LocalWu.top，以下简称 LocalWu.top。
