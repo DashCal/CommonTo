@@ -19,11 +19,11 @@ The link redirection whitelist mainly includes the following five categories:
 
 1. **Root Sites of the Website**
 
-   - LocalWu (`\_.LocalWu.top`)
+   - LocalWu (`\*.LocalWu.top`)
 
 2. **Government Agency Websites**
 
-   - Approved domains: `\_.gov.cn/` `\_.gov.com/` `\_.gov.hk/` `\_.gov.mo/` `\_.gov.tw/` `\_.org/` `\_.org.com/` `\_.org.cn`;
+   - Approved domains: `\*.gov.cn/` `\*.gov.com/` `\*.gov.hk/` `\*.gov.mo/` `\*.gov.tw/` `\*.org/` `\*.org.com/` `\*.org.cn`;
    - Government agency websites and local governments that do not conform to the aforementioned domain rules can apply autonomously to LocalWu.top.
 
 3. **News Media Websites**
@@ -33,7 +33,7 @@ The link redirection whitelist mainly includes the following five categories:
 
 4. **Major Commercial Websites**
 
-   - Domestic websites such as Sina (`\_.sina.com.cn` / `\_.sina.cn`), NetEase (`\_.163.com`), Bilibili (`\_.bilibili.com`), Tencent (`\_.qq.com`), Taobao (`\_.taobao.com`), JD.com (`\_.jd.com`), Douyin (`\*.douyin.com`), are automatically included in the whitelist;
+   - Domestic websites such as Sina (`\*.sina.com.cn` / `\*.sina.cn`), NetEase (`\*.163.com`), Bilibili (`\*.bilibili.com`), Tencent (`\*.qq.com`), Taobao (`\*.taobao.com`), JD.com (`\*.jd.com`), Douyin (`\*.douyin.com`), are automatically included in the whitelist;
    - Foreign commercial websites can apply autonomously to LocalWu.top.
 
 5. **Other Enterprises and Organizations**

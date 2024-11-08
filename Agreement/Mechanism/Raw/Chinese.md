@@ -16,15 +16,15 @@
 链接跳转白名单主要包括以下 5 类：
 
 1. **本网站根站点**
-   1. LocalWu(`\_.LocalWu.top`)
+   1. LocalWu(`\*.LocalWu.top`)
 2. **政府机构网站**
-   1. 进入白名单的域名：`\_.gov.cn/` `\_.gov.com/` `\_.gov.hk/` `\_.gov.mo/` `\_.gov.tw/` `\_.org/` `\_.org.com/` `\_.org.cn`；
+   1. 进入白名单的域名：`\*.gov.cn/` `\*.gov.com/` `\*.gov.hk/` `\*.gov.mo/` `\*.gov.tw/` `\*.org/` `\*.org.com/` `\*.org.cn`；
    2. 不符合上述所述域名规则的政府机构网站、地方政府，可自主向 LocalWu.top 申报。
 3. **新闻媒体网站**
    1. 新华社、人民日报，直接进入白名单；
    2. 其他传统媒体、境内地方性媒体，可自主向 LocalWu.top 申报，暂不支持境外媒体。
 4. **各大商业网站**
-   1. 境内，如新浪(`\_.sina.com.cn` / `\_.sina.cn`)、网易(`\_.163.com`)、哔哩哔哩(`\_.bilibili.com`)、腾讯(`\_.qq.com`)、淘宝(`\_.taobao.com`)、京东(`\_.jd.com`)、抖音(`\*.douyin.com`)，自动进入白名单；
+   1. 境内，如新浪(`\*.sina.com.cn` / `\*.sina.cn`)、网易(`\*.163.com`)、哔哩哔哩(`\*.bilibili.com`)、腾讯(`\*.qq.com`)、淘宝(`\*.taobao.com`)、京东(`\*.jd.com`)、抖音(`\*.douyin.com`)，自动进入白名单；
    2. 境外商业网站可自主向 LocalWu.top 申报。
 5. **其他企业、组织机构**
    1. 可自主向 LocalWu.top 申报。
