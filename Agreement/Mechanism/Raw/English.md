@@ -4,6 +4,8 @@
 <a href="../">中文版本 (Chinese Version) →</a>
 </p>
 
+**The following content has been translated using artificial intelligence. The content is for reference only. The actual content and implementation are subject to the original Chinese version.**
+
 to.LocalWu.top (JumpTo) is the link forwarding provider.
 For simplicity, we will use "LocalWu.top" hereinafter abbreviated as the term for "to.LocalWu.top (JumpTo)".
 
@@ -89,7 +91,7 @@ LocalWu.top does not bear any responsibility for user information leakage, prope
 
 The current version of the link redirection whitelist mechanism, application methods, and rules will officially take effect on January 1, 2025. Corporate-certified accounts can expedite their applications to avoid affecting subsequent use. External link domains that have not been declared or have not passed the review after declaration will no longer support automatic redirection. Thank you for your understanding and support of LocalWu.top.
 
-## Current Rule Version
+## Rule Version
 
 Version Code: 20241107V1
 Release Date: November 7, 2024
