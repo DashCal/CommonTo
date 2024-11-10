@@ -88,9 +88,9 @@ function goStraight() {
 let goStraightUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
 let primaryUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL1ByaW1hcnlSZWxhdGlvbnMuanNvbg==");
 let minorUrl = DBSF("");
-let tertiaryUrl = DBSF("");
-let whitelistUrl = DBSF("");
-let blacklistUrl = DBSF("");
+let commonUrl = DBSF("");
+let allowUrl = DBSF("");
+let blockUrl = DBSF("");
 let defaultUrl = "aHR0cHM6Ly9sb2NhbHd1LnRvcA==";
 
 async function fetchMatchupData(dataUrl) {
@@ -106,37 +106,59 @@ async function fetchMatchupData(dataUrl) {
     }
 }
 
-async function primaryMatchup() {
+async function matchupPrimary() {
     let param = URLParameters(window.location.href).getByIndex(0);
-    let list = fetchMatchupData(primaryUrl).List;
-    if (param != null && param[1] == "") {
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].status == true) {
-                let keys = list[i].keys;
-                keys.push(list[i].key);
-                for (let j = 0; j < keys.length; j++) {
-                    if (keys[j].toLowerCase() == param[0].toLowerCase()) {
-                        goStraightUrl = list[i].url;
-                        window.location.href = list[i].url;
-                        return 0;
+    let list = null;
+    let attempts = 0;
+    let maxAttempts = 5;
+
+    while (attempts < maxAttempts) {
+        try {
+            let data = await fetchMatchupData(primaryUrl);
+            list = data.List;
+
+            if (param != null && param[1] == "") {
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i].status == true) {
+                        let keys = list[i].keys;
+                        keys.push(list[i].key);
+                        for (let j = 0; j < keys.length; j++) {
+                            if (keys[j].toLowerCase() == param[0].toLowerCase()) {
+                                window.location.href = list[i].url;
+                                return;
+                            }
+                        }
                     }
                 }
             }
+            break; // 数据获取成功且无需重试，跳出循环
+        } catch (error) {
+            console.error('Primary Matchup Error: ', error);
+            attempts++;
+            if (attempts >= maxAttempts) {
+                matchupMinor();
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
-    minorMatchup();
+    matchupMinor();
 }
 
-primaryMatchup();
+matchupPrimary();
 
-function minorMatchup() {
-    whitelistMatchup();
+function matchupMinor() {
+    matchupCommon();
 }
 
-function whitelistMatchup() {
-    blacklistMatchup();
+function matchupCommon() {
+    matchupAllow();
 }
 
-function blacklistMatchup() {
+function matchupAllow() {
+    matchupBlock();
+}
+
+function matchupBlock() {
     DST(defaultUrl);
 }
