@@ -83,7 +83,7 @@ function DST(href) {
 
 function ReplaceSiteTitle(title, local) {
     if (local) {
-        document.title = title + " - " + DBSF(defaultStr);
+        document.title = title + " - " + DBSF("TG9jYWwgV3U=");
     } else {
         document.title = title;
     }
