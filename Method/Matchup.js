@@ -81,6 +81,14 @@ function DST(href) {
     if (href != false) window.location.href = href;
 }
 
+function ReplaceSiteTitle(title, local) {
+    if (local) {
+        document.title = title + " - " + DBSF(defaultStr);
+    } else {
+        document.title = title;
+    }
+}
+
 function ReplaceWithContent(Id, Content) {
     let span = document.getElementById(Id);
     if (span) {
@@ -239,6 +247,7 @@ function matchupBlock() {
 
 function main() {
     if (params.paramEntries.length == 0) {
+        ReplaceSiteTitle("JumpTo", true)
         ShowElement("Blank", false);
         ShowElement("JumpTo", true);
     } else {
