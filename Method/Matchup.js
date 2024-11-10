@@ -332,6 +332,7 @@ function main() {
     if (params.paramEntries.length == 0) {
         ReplaceSiteTitle("JumpTo 在这里，安全着陆", true)
         ShowElement("Blank", false);
+        ShowElement("HeaderLogo", false);
         ShowElement("JumpTo", true);
     } else {
         matchupPrimary();

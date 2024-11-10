@@ -169,36 +169,37 @@ span.tiptoe:hover::before {
 }
 
 .whole {
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     padding: 7vw 7vw 7vw 7vw;
     width: 86vw;
-    height: fit-content;
-    justify-content: center;
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .header {
-    height: 15vh;
+    max-height: 15vh;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: flex-start;
-    align-items: flex-start
+    align-content: center;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .center {
-    height: 40vh;
+    min-height: 40vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    justify-content: center
+    justify-content: flex-start;
 }
 
 .go2Btn {
@@ -233,12 +234,13 @@ span.tiptoe:hover::before {
 
 .footer {
     height: 10vh;
+    min-height: 128px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
-    justify-content: flex-start
+    justify-content: flex-end;
 }
 
 .logoIcon {
