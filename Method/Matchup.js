@@ -1,5 +1,3 @@
-//class URLParameters { constructor(url) { const queryString = (url.indexOf('?') !== -1) ? url.split('?')[1] : ''; this.params = {}; this.paramEntries = []; this._parseQueryString(queryString) } _parseQueryString(queryString) { const params = new URLSearchParams(queryString); for (const [key, value] of params.entries()) { this.params[key] = value; this.paramEntries.push([key, value]) } } getAll() { return this.params } get(key) { return this.params[key] } bool(key) { if (this.params[key] == "true") { return true } else { return false } } string(key) { if (this.params[key]) { return this.params[key] + "" } else { return false } } base64(key) { if (this.params[key]) { return DBSF(this.params[key]) } else { return false } } getByIndex(index) { if (index >= 0 && index < this.paramEntries.length) { return this.paramEntries[index] } else { return null } } } function DBSF(base64Str) { let padding = base64Str.length % 4 === 0 ? 0 : 4 - (base64Str.length % 4); base64Str += '='.repeat(padding); let binaryString = ""; try { binaryString = window.atob(base64Str); let bytes = new Uint8Array(binaryString.length); for (let i = 0; i < binaryString.length; i++)bytes[i] = binaryString.charCodeAt(i); return new TextDecoder('utf-8').decode(bytes) } catch (error) { return "" } } function DST(href) { if (href != false) window.location.href = href } let primaryUrl = 'aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL1ByaW1hcnlSZWxhdGlvbnMuanNvbg=='; async function fetchJsonData(dataUrl) { try { let response = await fetch(dataUrl); if (!response.ok) { throw new Error(`HTTP error!status:${response.status}`) } let data = await response.json(); return data } catch (error) { console.error('Error fetching JSON data:', error); return null } } let goStraightUrl = DBSF('aHR0cHM6Ly9sb2NhbHd1LnRvcA=='); function goStraight() { DST(goStraightUrl) } (async () => { let data = await fetchJsonData(DBSF(primaryUrl)); if (data) { let params = new URLParameters(window.location.href); MatchupPrimary(data.Pairs, params.getByIndex(0)) } else { console.log('No data received.') } })(); function MatchupPrimary(pairs, primary) { if (primary != null && primary[1] == "") { for (let i = 0; i < pairs.length; i++) { if (pairs[i].name == primary[0] && pairs[i].status == true) { goStraightUrl = pairs[i].url; window.location.href = pairs[i].url; return 0 } } } MatchupMinor() } function MatchupMinor() { MatchupCommon() } function MatchupCommon() { DST(DBSF('aHR0cHM6Ly9sb2NhbHd1LnRvcA==')) }
-
 class URLParameters {
     constructor(url) {
         const queryString = url.indexOf("?") !== -1 ? url.split("?")[1] : "";
@@ -49,23 +47,6 @@ class URLParameters {
         }
     }
 }
-function DBSF(base64Str) {
-    let padding = base64Str.length % 4 === 0 ? 0 : 4 - (base64Str.length % 4);
-    base64Str += "=".repeat(padding);
-    let binaryString = "";
-    try {
-        binaryString = window.atob(base64Str);
-        let bytes = new Uint8Array(binaryString.length);
-        for (let i = 0; i < binaryString.length; i++)
-            bytes[i] = binaryString.charCodeAt(i);
-        return new TextDecoder("utf-8").decode(bytes);
-    } catch (error) {
-        return "";
-    }
-}
-function DST(href) {
-    if (href != false) window.location.href = href;
-}
 
 async function fetchJsonData(dataUrl) {
     try {
@@ -81,8 +62,54 @@ async function fetchJsonData(dataUrl) {
     }
 }
 
-function goStraight() {
-    DST(goStraightUrl);
+function DBSF(base64Str) {
+    let padding = base64Str.length % 4 === 0 ? 0 : 4 - (base64Str.length % 4);
+    base64Str += "=".repeat(padding);
+    let binaryString = "";
+    try {
+        binaryString = window.atob(base64Str);
+        let bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++)
+            bytes[i] = binaryString.charCodeAt(i);
+        return new TextDecoder("utf-8").decode(bytes);
+    } catch (error) {
+        return "";
+    }
+}
+
+function DST(href) {
+    if (href != false) window.location.href = href;
+}
+
+function ReplaceWithContent(Id, Content) {
+    let span = document.getElementById(Id);
+    if (span) {
+        span.textContent = Content;
+    }
+}
+
+function ReplaceAllWithContent(Class, Content) {
+    let spans = document.getElementsByClassName(Class);
+    if (spans && spans.length != 0) {
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].textContent = Content;
+        }
+    }
+}
+
+function ShowElement(Id, Or) {
+    let element = document.getElementById(Id);
+    if (element) {
+        if (!Or) {
+            if (element.classList.contains("none")) { }
+            else {
+                element.classList.add("none");
+            }
+        } else {
+            if (element.classList.contains("none")) { element.classList.remove("none"); }
+            else { }
+        }
+    }
 }
 
 let goStraightUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
@@ -91,7 +118,13 @@ let minorUrl = DBSF("");
 let commonUrl = DBSF("");
 let allowUrl = DBSF("");
 let blockUrl = DBSF("");
-let defaultUrl = "aHR0cHM6Ly9sb2NhbHd1LnRvcA==";
+let defaultUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
+let params = new URLParameters(window.location.href);
+console.log(params);
+
+function goStraight() {
+    DST(goStraightUrl);
+}
 
 async function fetchMatchupData(dataUrl) {
     try {
@@ -107,7 +140,7 @@ async function fetchMatchupData(dataUrl) {
 }
 
 async function matchupPrimary() {
-    let param = URLParameters(window.location.href).getByIndex(0);
+    let param = params.getByIndex(0);
     let list = null;
     let attempts = 0;
     let maxAttempts = 5;
@@ -124,14 +157,18 @@ async function matchupPrimary() {
                         keys.push(list[i].key);
                         for (let j = 0; j < keys.length; j++) {
                             if (keys[j].toLowerCase() == param[0].toLowerCase()) {
-                                window.location.href = list[i].url;
+
+                                ShowElement("Blank", false);
+                                ShowElement("Straight", true);
+                                ReplaceAllWithContent("WillUrl", list[i].url);
+                                // window.location.href = list[i].url;
                                 return;
                             }
                         }
                     }
                 }
             }
-            break; // 数据获取成功且无需重试，跳出循环
+            break;
         } catch (error) {
             console.error('Primary Matchup Error: ', error);
             attempts++;
@@ -144,8 +181,6 @@ async function matchupPrimary() {
     }
     matchupMinor();
 }
-
-matchupPrimary();
 
 function matchupMinor() {
     matchupCommon();
@@ -160,5 +195,22 @@ function matchupAllow() {
 }
 
 function matchupBlock() {
-    DST(defaultUrl);
+    // DST(defaultUrl);
 }
+
+/* MAIN */
+
+function main() {
+    if (params.paramEntries.length == 0) {
+        ShowElement("Blank", false);
+        ShowElement("JumpTo", true);
+    } else {
+        matchupPrimary();
+    }
+}
+
+function onloads() {
+    PCS();
+    main();
+}
+window.onload = onloads;

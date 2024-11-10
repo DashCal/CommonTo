@@ -1,1 +1,17 @@
-function onloads() { PCS() } window.onload = onloads; function PCS() { let body = document.body; if (body.classList.contains("darkMode")) { body.classList.remove("darkMode") } if (body.classList.contains("lightMode")) { body.classList.remove("lightMode") } if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { body.classList.add("darkMode") } else { body.classList.add("lightMode") } } function D2H(href) { if (href != false) window.location.href = href } function DBSF(base64Str) { let padding = base64Str.length % 4 === 0 ? 0 : 4 - (base64Str.length % 4); base64Str += '='.repeat(padding); let binaryString = ""; try { binaryString = window.atob(base64Str); let bytes = new Uint8Array(binaryString.length); for (let i = 0; i < binaryString.length; i++)bytes[i] = binaryString.charCodeAt(i); return new TextDecoder('utf-8').decode(bytes) } catch (error) { return "" } }
+function PCS() {
+    let body = document.body;
+    if (body.classList.contains("darkMode")) {
+        body.classList.remove("darkMode");
+    }
+    if (body.classList.contains("lightMode")) {
+        body.classList.remove("lightMode");
+    }
+    if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        body.classList.add("darkMode");
+    } else {
+        body.classList.add("lightMode");
+    }
+}
