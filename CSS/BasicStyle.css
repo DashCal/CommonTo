@@ -232,7 +232,7 @@ span.tiptoe:hover::before {
 }
 
 .footer {
-    height: 15vh;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
