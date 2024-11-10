@@ -2,16 +2,16 @@
     "Type": "Minor",
     "List": [
         {
-            "key": "",
-            "keys": [],
+            "key": "PreAlpha",
+            "keys": ["原型"],
             "status": true,
-            "url": "http://localwu.top/error",
+            "url": "http://PreAlpha.localwu.top/",
             "note": "/"
         },
         {
             "key": "",
             "keys": [],
-            "status": true,
+            "status": false,
             "url": "http://localwu.top/error",
             "note": "/"
         }

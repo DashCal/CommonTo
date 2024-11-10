@@ -125,6 +125,13 @@ span {
     transition: .1s ease
 }
 
+span.logo {
+    font-weight: 800;
+    color: #203864;
+    font-size: xx-large;
+    font-feature-settings: 'ss02' 1
+}
+
 span.notice {
     font-weight: 600;
     font-size: x-large;
@@ -192,13 +199,6 @@ span.tiptoe:hover::before {
     align-content: center;
     align-items: center;
     justify-content: center
-}
-
-.jumpTo {
-    background: url("https://to.localwu.top/Branding/Element/Round.svg?v=202411102100");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-blend-mode: lighten;
 }
 
 .go2Btn {

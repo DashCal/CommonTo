@@ -114,13 +114,12 @@ function ShowElement(Id, Or) {
 
 let goStraightUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
 let primaryUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL1ByaW1hcnlSZWxhdGlvbnMuanNvbg==");
-let minorUrl = DBSF("");
-let commonUrl = DBSF("");
-let allowUrl = DBSF("");
-let blockUrl = DBSF("");
+let minorUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL01pbm9yUmVsYXRpb25zLmpzb24=");
+let commonUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0NvbW1vblJlbGF0aW9ucy5qc29u");
+let allowUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0FsbG93UmVsYXRpb25zLmpzb24=");
+let blockUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0Jsb2NrUmVsYXRpb25zLmpzb24=");
 let defaultUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
 let params = new URLParameters(window.location.href);
-console.log(params);
 
 function goStraight() {
     DST(goStraightUrl);
@@ -157,7 +156,6 @@ async function matchupPrimary() {
                         keys.push(list[i].key);
                         for (let j = 0; j < keys.length; j++) {
                             if (keys[j].toLowerCase() == param[0].toLowerCase()) {
-
                                 ShowElement("Blank", false);
                                 ShowElement("Straight", true);
                                 ReplaceAllWithContent("WillUrl", list[i].url);
@@ -182,7 +180,44 @@ async function matchupPrimary() {
     matchupMinor();
 }
 
-function matchupMinor() {
+async function matchupMinor() {
+    let param = params.getByIndex(0);
+    let list = null;
+    let attempts = 0;
+    let maxAttempts = 5;
+
+    while (attempts < maxAttempts) {
+        try {
+            let data = await fetchMatchupData(minorUrl);
+            list = data.List;
+            if (param != null && param[1] == "") {
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i].status == true) {
+                        let keys = list[i].keys;
+                        keys.push(list[i].key);
+                        for (let j = 0; j < keys.length; j++) {
+                            if (keys[j] == param[0]) {
+                                ShowElement("Blank", false);
+                                ShowElement("Straight", true);
+                                ReplaceAllWithContent("WillUrl", list[i].url);
+                                // window.location.href = list[i].url;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        } catch (error) {
+            console.error('Minor Matchup Error: ', error);
+            attempts++;
+            if (attempts >= maxAttempts) {
+                matchupMinor();
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
     matchupCommon();
 }
 
@@ -196,6 +231,8 @@ function matchupAllow() {
 
 function matchupBlock() {
     // DST(defaultUrl);
+    ShowElement("Blank", false);
+    ShowElement("Fail", true);
 }
 
 /* MAIN */
