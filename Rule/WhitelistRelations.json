@@ -1,0 +1,17 @@
+{
+    "Type": "Whitelist",
+    "List": [
+        {
+            "domain": "*.localwu.top",
+            "paths": [],
+            "status": true,
+            "note": "/"
+        },
+        {
+            "domain": "*.localwu.top",
+            "paths": [],
+            "status": true,
+            "note": "/"
+        }
+    ]
+}

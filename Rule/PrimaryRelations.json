@@ -1,71 +1,89 @@
 {
     "Type": "Primary",
-    "Pairs": [
+    "List": [
         {
-            "name": "GitHub",
-            "username": "LocalWu",
+            "key": "GitHub",
+            "keys": [],
             "status": true,
-            "url": "https://github.com/LocalWu"
+            "url": "https://github.com/LocalWu",
+            "note": "LocalWu"
         },
         {
-            "name": "Gitee",
-            "username": "LocalWu",
+            "key": "Gitee",
+            "keys": ["码云"],
             "status": true,
-            "url": "https://gitee.com/LocalWu"
+            "url": "https://gitee.com/LocalWu",
+            "note": "LocalWu"
         },
         {
-            "name": "CSDN",
-            "username": "LocalWu",
+            "key": "CSDN",
+            "keys": [],
             "status": true,
-            "url": "https://blog.csdn.net/qq_17440007"
+            "url": "https://blog.csdn.net/qq_17440007",
+            "note": "LocalWu"
         },
         {
-            "name": "Bilibili",
-            "username": "DashLocal",
+            "key": "Bilibili",
+            "keys": ["B站","哔哩哔哩"],
             "status": true,
-            "url": "https://space.bilibili.com/3546779958118774"
+            "url": "https://space.bilibili.com/3546779958118774",
+            "note": "DashLocal"
         },
         {
-            "name": "RedBook",
-            "username": "/",
+            "key": "Are.na",
+            "keys": [],
+            "status": true,
+            "url": "https://www.are.na/localwu",
+            "note": "localwu"
+        },
+        {
+            "key": "Zcool",
+            "keys": ["站酷"],
+            "status": true,
+            "url": "https://www.zcool.com.cn/u/23326090",
+            "note": "LocalWu"
+        },
+        {
+            "key": "Weibo",
+            "keys": ["微博"],
+            "status": true,
+            "url": "https://weibo.com/u/7750833298",
+            "note": "LocalAtHere"
+        },
+        {
+            "key": "RedBook",
+            "keys": ["小红书","LittleRedBook","XiaoHongShu"],
             "status": false,
-            "url": "http://localwu.top/error"
+            "url": "/",
+            "note": "/"
         },
         {
-            "name": "Are.na",
-            "username": "localwu",
-            "status": true,
-            "url": "https://www.are.na/localwu"
-        },
-        {
-            "name": "Zcool",
-            "username": "LocalWu",
-            "status": true,
-            "url": "https://www.zcool.com.cn/u/23326090"
-        },
-        {
-            "name": "Figma",
-            "username": "/",
+            "key": "Figma",
+            "keys": [],
             "status": false,
-            "url": "http://localwu.top/error"
+            "url": "/",
+            "note": "/"
         },
         {
-            "name": "Weibo",
-            "username": "LocalAtHere",
-            "status": true,
-            "url": "https://weibo.com/u/7750833298"
-        },
-        {
-            "name": "Ins",
-            "username": "/",
+            "key": "Flickr",
+            "keys": [],
             "status": false,
-            "url": "http://localwu.top/error"
+            "url": "/",
+            "note": "/"
         },
         {
-            "name": "X",
-            "username": "/",
+            "key": "Ins",
+            "keys": ["Insta","Instagram"],
             "status": false,
-            "url": "http://localwu.top/error"
+            "url": "/",
+            "note": "/"
+        },
+        {
+            "key": "X",
+            "keys": ["Twitter"],
+            "status": false,
+            "url": "/",
+            "note": "/"
         }
     ]
 }
