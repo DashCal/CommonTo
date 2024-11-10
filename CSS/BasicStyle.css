@@ -139,7 +139,7 @@ span.notice {
 }
 
 span.attention {
-    max-width: 50vw;
+    /* max-width: 50vw; */
     word-break: normal;
     text-align: center
 }
@@ -181,7 +181,7 @@ span.tiptoe:hover::before {
 }
 
 .header {
-    height: 10vh;
+    height: 15vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -232,7 +232,7 @@ span.tiptoe:hover::before {
 }
 
 .footer {
-    height: 10vh;
+    height: 15vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

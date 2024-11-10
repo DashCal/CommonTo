@@ -8,9 +8,9 @@
             "note": "/"
         },
         {
-            "domain": "*.localwu.top",
+            "domain": "",
             "paths": [],
-            "status": true,
+            "status": false,
             "note": "/"
         }
     ]

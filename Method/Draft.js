@@ -318,10 +318,185 @@ function getUrl() {
 }
 
 async function matchupAllow() {
+    let param = params.getByIndex(0);
+    let url = getUrl();
+    let attempts = 0;
+    let maxAttempts = 5;
+
+    if (url == null) {
+        ShowElement("Blank", false);
+        ShowElement("Fail", true);
+        return;
+    }
+
+    // 提取 URL 的域名部分（不包括路径、查询参数等）
+    function getDomainFromUrl(url) {
+        try {
+            const hostname = new URL(url).hostname;
+            console.log(hostname.split('.'));
+            return hostname.split('.');
+        } catch (error) {
+            console.error('Error extracting domain:', error);
+            return [];
+        }
+    }
+
+    // 检查域名是否与模式匹配（支持通配符 *）
+    function matchesDomainPattern(domain, pattern) {
+        const patternParts = pattern.split('*').map(p => p.split('.')).flat().filter(Boolean);
+        const domainParts = domain;
+
+        if (patternParts.length !== domainParts.length - 1) {
+            return false;
+        }
+
+        for (let i = 0; i < patternParts.length; i++) {
+            if (patternParts[i] !== '' && patternParts[i] !== domainParts[i + 1]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    while (attempts < maxAttempts) {
+        try {
+            let data = await fetchMatchupData(allowUrl);
+            const list = data.List;
+
+            for (const item of list) {
+                if (item.status === true) {
+                    const paramDomain = getDomainFromUrl(param);
+                    const itemDomainPattern = item.domain.split('.');
+
+                    // 简单处理通配符，这里假设通配符只在域名的最开始位置
+                    if (itemDomainPattern[0] === '*') {
+                        itemDomainPattern.shift(); // 移除通配符部分
+                        if (matchesDomainPattern(paramDomain.slice(1), itemDomainPattern)) {
+                            ShowElement("Blank", false);
+                            ShowElement("Straight", true);
+                            ReplaceAllWithContent("WillUrl", param);
+                            window.location.href = param;
+                            return;
+                        }
+                    } else {
+                        // 如果不通配，则直接全匹配
+                        if (JSON.stringify(paramDomain) === JSON.stringify(itemDomainPattern)) {
+                            // 注意：这里全匹配可能不太实际，因为 URL 可能包含路径等
+                            // 通常我们只比较域名部分，上面的通配符处理已经足够
+                            // 如果确实需要全匹配（包括路径等），则应该重新考虑逻辑
+
+                            // 但为了示例，我们仍然保留这个分支（尽管它可能不会被执行）
+                            ShowElement("Blank", false);
+                            ShowElement("Straight", true);
+                            ReplaceAllWithContent("WillUrl", param);
+                            window.location.href = param;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            break; // 如果没有找到匹配项，则退出循环
+        } catch (error) {
+            console.error('Allow Matchup Error:', error);
+            attempts++;
+            if (attempts >= maxAttempts) {
+                matchupBlock();
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, 1000)); // 等待一秒后再重试
+        }
+    }
+
+    // 如果所有尝试都失败了，则执行 matchupBlock()
     matchupBlock();
 }
 
+// 注意：您需要确保以下函数在您的代码中是可用的
+// function fetchMatchupData(url) { ... }
+// function ShowElement(elementId, show) { ... }
+// function ReplaceAllWithContent(elementId, content) { ... }
+// function matchupBlock() { ... }
+
+// async function matchupAllow() {
+//     let param = DBSF(window.location.href.indexOf("?") !== -1 ? window.location.href.split("?")[1] : "");
+//     let list = null;
+//     let attempts = 0;
+//     let maxAttempts = 5;
+
+//     while (attempts < maxAttempts) {
+//         try {
+//             let data = await fetchMatchupData(allowUrl);
+//             list = data.List;
+//             if (param != null && param != "") {
+//                 for (let i = 0; i < list.length; i++) {
+//                     if (list[i].status == true) {
+//                         let domain = list[i].domain.indexOf(".") !== -1 ? window.location.href.split("?")[1] : "";
+//                         for (let j = 0; j < domain.length; j++) {
+//                             if (keys[j] == param[0]) {
+//                                 ShowElement("Blank", false);
+//                                 ShowElement("Straight", true);
+//                                 ReplaceAllWithContent("WillUrl", list[i].url);
+//                                 window.location.href = list[i].url;
+//                                 return;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//             break;
+//         } catch (error) {
+//             console.error('Allow Matchup Error: ', error);
+//             attempts++;
+//             if (attempts >= maxAttempts) {
+//                 matchupBlock();
+//                 return;
+//             }
+//             await new Promise(resolve => setTimeout(resolve, 1000));
+//         }
+//     }
+//     matchupBlock();
+// }
+
 async function matchupBlock() {
+    let param = params.getByIndex(0);
+    let list = null;
+    let attempts = 0;
+    let maxAttempts = 5;
+
+    while (attempts < maxAttempts) {
+        try {
+            let data = await fetchMatchupData(commonUrl);
+            list = data.List;
+            if (param != null && param[1] == "") {
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i].status == true) {
+                        let keys = list[i].keys;
+                        keys.push(list[i].key);
+                        for (let j = 0; j < keys.length; j++) {
+                            if (keys[j] == param[0]) {
+                                ShowElement("Blank", false);
+                                ShowElement("Straight", true);
+                                ReplaceAllWithContent("WillUrl", list[i].url);
+                                window.location.href = list[i].url;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        } catch (error) {
+            console.error('Common Matchup Error: ', error);
+            attempts++;
+            if (attempts >= maxAttempts) {
+                matchupMinor();
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
     ShowElement("Blank", false);
     ShowElement("Fail", true);
 }
