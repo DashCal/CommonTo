@@ -49,9 +49,9 @@ The link redirection whitelist mainly includes the following five categories:
 
 ## Application Channel
 
-Applications can be submitted via email by sending an email to JumpTo@LocalWu.top.
+Applications can be submitted via email by sending an email to Contact@LocalWu.top.
 Please ensure that the email address used for sending is contactable, or actively indicate a contactable email address in a prominent position in the body of the email.
-We will use LocalWu@FoxMail.com as the response email address. Please ensure that you can receive emails from this address and can reply promptly.
+We will use from@LocalWu.top (or LocalWu@FoxMail.com) as the response email address. Please ensure that you can receive emails from this address and can reply promptly.
 
 The content requirements and a simulated application email are as follows:
 
