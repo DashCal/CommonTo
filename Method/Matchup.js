@@ -322,7 +322,7 @@ async function matchupAllow() {
 }
 
 async function matchupBlock() {
-    ReplaceSiteTitle("Redirection Error× 跳转出错×", true);
+    ReplaceSiteTitle("Redirection Error 跳转出错", true);
     ShowElement("Blank", false);
     ShowElement("Fail", true);
 }
