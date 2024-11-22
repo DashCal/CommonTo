@@ -44,11 +44,11 @@
             "note": "LocalWu"
         },
         {
-            "key": "Weibo",
-            "keys": ["微博"],
+            "key": "CodePen",
+            "keys": ["Cdp"],
             "status": true,
-            "url": "https://weibo.com/u/7750833298",
-            "note": "LocalAtHere"
+            "url": "https://codepen.io/Local-Wu",
+            "note": "Local-Wu"
         },
         {
             "key": "RedBook",
