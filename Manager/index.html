@@ -1,0 +1,375 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JumpTo Manager - Local Wu</title>
+  <link rel="icon" type="image/svg+xml" href="https://to.localwu.top/Branding/Icon/Icon.svg?v=202411110500">
+  <link rel="icon" type="image/png" href="https://to.localwu.top/Branding/Icon/Icon.png?v=202411110500">
+  <link rel="stylesheet" href="https://dist.localwu.top/CSS/Font/BasicFonts.css?v=202411110500">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script data-goatcounter="https://localwu.goatcounter.com/count" async="" src="https://dist.localwu.top/Script/WebAnalytics/GoatCounter.js?v=202411110500"></script>
+<style>
+@font-face {
+  font-family: Emoji;
+  src: local("Apple Color Emoji"), local("Segoe UI Emoji"),
+    local("Segoe UI Symbol"), local("Noto Color Emoji");
+  unicode-range: U+1F000-1F644, U+203C-3299;
+}
+body {
+  font-family: Inter, Noto_Sans, system-ui, —apple-system, Segoe UI, Roboto,
+    Emoji, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.05em;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  color: #203864;
+  background: #f4f4f4;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+header .logoWordmark {
+  margin-right: 0.5em;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0.5em 0;
+  margin-right: 0.5em;
+}
+
+header nav ul li a {
+  color: #203864;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+  background-color: #203864;
+  color: #f4f4f4;
+}
+
+.section {
+  padding: 1em 2em;
+  display: none; /* Hidden by default */
+}
+
+.section.hidden {
+  display: none;
+}
+
+.section.visible {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logoWordmark">
+        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
+        <span style="font-weight:900;">JumpTo</span>
+        <span style="font-weight:400;letter-spacing:-.08em;">Manager</span>
+        <!--       <span style="font-weight:900;">
+        <sub><sup>
+            <sup><sub>[</sub></sup>5<sup><sub>]</sub></sup>
+            <span style="font-weight:900;"> LocalWu Matrix</span>
+          </sup></sub>
+      </span> -->
+      </h1>
+      <nav style="margin-left: -.5em;">
+        <ul>
+          <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: center;justify-content: flex-start;align-items: center;">
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> Build</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> Layer</a></li>
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> Optimize</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list"></i> Manage</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> Import</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> Export</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> Setting</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-user-check"></i> Deploy</a></li>
+            <!--             <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> 创建</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> 层级</a></li>
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> 优化</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list"></i> 管理</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> 导入</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> 导出</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> 设置</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-user-check"></i> 部署</a></li> -->
+          </div>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="create-link" class="section hidden">
+      <div class="container">
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
+      </div>
+    </section>
+    <section id="manage-links" class="section hidden">
+      <div class="container">
+        <h2>Manage Short Links</h2>
+        <table id="link-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Long URL</th>
+              <th>Short URL</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Links will be populated here -->
+          </tbody>
+        </table>
+        <div class="buttons">
+          <button onclick="sortLinks()">Sort Links</button>
+        </div>
+      </div>
+    </section>
+    <section id="import-export" class="section hidden">
+      <div class="container">
+        <h2>Import/Export JSON</h2>
+        <div class="form-group">
+          <label for="json-input">JSON Input:</label>
+          <textarea id="json-input" placeholder="Paste your JSON here..."></textarea>
+        </div>
+        <div class="form-group">
+          <button onclick="importJson()">Import</button>
+        </div>
+        <div class="form-group">
+          <label for="json-output">Exported JSON:</label>
+          <textarea id="json-output" readonly=""></textarea>
+          <button onclick="exportJson()">Export</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  
+      <script id="rendered-js">
+// JavaScript to handle the front-end interactions
+
+// Simulated short link generation (just for demonstration)
+let shortLinkCounter = 1;
+
+// Storage for links (simulated database)
+let links = [];
+
+// Function to show a specific section
+function showSection(sectionId) {
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((section) => {
+    section.classList.remove("visible");
+    section.classList.add("hidden");
+  });
+
+  const targetSection = document.getElementById(sectionId);
+  targetSection.classList.remove("hidden");
+  targetSection.classList.add("visible");
+}
+
+// Function to create a new short link
+document
+  .getElementById("create-link-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const longUrl = document.getElementById("long-url").value;
+    const shortUrl = `http://to.localwu.top/${shortLinkCounter++}er35s6`;
+
+    links.push({ id: links.length + 1, longUrl, shortUrl });
+
+    document.getElementById("short-link-preview").textContent = shortUrl;
+
+    // Optionally, you could clear the input field here
+    // document.getElementById('long-url').value = '';
+
+    // Update the table with the new link (this part is optional, as we're not displaying it initially)
+    // updateLinkTable();
+  });
+
+// Function to sort links (by ID in this case
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 初始化链接列表
+  const links = [];
+  let currentLinkId = 1;
+
+  // 显示特定部分
+  function showSection(sectionId) {
+    document.querySelectorAll(".section").forEach((section) => {
+      section.classList.add("hidden");
+    });
+    document.getElementById(sectionId).classList.remove("hidden");
+  }
+
+  // 创建新链接
+  document
+    .getElementById("create-link-form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+      const longUrl = document.getElementById("long-url").value;
+      const shortUrl = `http://to.localwu.top/${currentLinkId}6k8xa`;
+      const newLink = { id: currentLinkId, longUrl, shortUrl };
+      links.push(newLink);
+      currentLinkId++;
+      updateLinkTable();
+      document.getElementById("long-url").value = "";
+      document.getElementById("short-link-preview").textContent = shortUrl;
+      showSection("manage-links"); // 创建后自动跳转到管理链接页面
+    });
+
+  // 更新链接表
+  function updateLinkTable() {
+    const tbody = document
+      .getElementById("link-table")
+      .getElementsByTagName("tbody")[0];
+    tbody.innerHTML = "";
+    links.forEach((link) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+                <td>${link.id}</td>
+                <td>${link.longUrl}</td>
+                <td>${link.shortUrl}</td>
+                <td><button onclick="deleteLink(${link.id})">Delete</button></td>
+            `;
+      tbody.appendChild(row);
+    });
+  }
+
+  // 删除链接
+  function deleteLink(id) {
+    links = links.filter((link) => link.id !== id);
+    updateLinkTable();
+  }
+
+  // 排序链接
+  function sortLinks() {
+    links.sort((a, b) => a.id - b.id);
+    updateLinkTable();
+  }
+
+  // 导入JSON
+  function importJson() {
+    const jsonInput = document.getElementById("json-input").value;
+    try {
+      const importedLinks = JSON.parse(jsonInput);
+      links.splice(0, links.length, ...importedLinks);
+      currentLinkId = links.length ? links[links.length - 1].id + 1 : 1;
+      updateLinkTable();
+    } catch (e) {
+      alert("Invalid JSON format!");
+    }
+  }
+
+  // 导出JSON
+  function exportJson() {
+    const jsonOutput = JSON.stringify(links, null, 2);
+    document.getElementById("json-output").value = jsonOutput;
+  }
+});
+    </script>
+
+  
+
+
+
+</body></html>
