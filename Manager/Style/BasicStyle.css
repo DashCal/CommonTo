@@ -1,0 +1,204 @@
+@font-face {
+  font-family: Emoji;
+  src: local("Apple Color Emoji"), local("Segoe UI Emoji"),
+    local("Segoe UI Symbol"), local("Noto Color Emoji");
+  unicode-range: U+1F000-1F644, U+203C-3299;
+}
+body {
+  font-family: Inter, Noto_Sans, system-ui, —apple-system, Segoe UI, Roboto,
+    Emoji, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: stretch;
+  color: #203864;
+  background: #f4f4f4;
+}
+
+header {
+  color: #203864;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+header .logoWordmark {
+  margin-right: 0.5em;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0.5em 0;
+  margin-right: 0.5em;
+}
+
+header nav ul li a {
+  color: #203864;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+  background-color: #203864;
+  color: #f4f4f4;
+}
+
+main {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.section {
+  padding: 1em 2em;
+  color: #000000;
+  display: none; /* Hidden by default */
+}
+
+.section.hidden {
+  display: none;
+}
+
+.section.visible {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+
+footer {
+  color: #203864;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+footer .logoWordmark {
+  margin-right: 0.5em;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.scrollable-container {
+  --show-top-mask: 0;
+  --show-bottom-mask: 0;
+  --mask-size: 25px;
+  --gradient: linear-gradient(
+    to bottom,
+    transparent 0%,
+    white calc(var(--show-top-mask) * var(--mask-size)),
+    white calc(100% - calc(var(--mask-size) * var(--show-bottom-mask))),
+    transparent 100%
+  );
+  -webkit-mask: var(--gradient);
+  mask: var(--gradient);
+}
+
+.top-mask {
+  --show-top-mask: 1;
+}
+
+.bottom-mask {
+  --show-bottom-mask: 1;
+}
