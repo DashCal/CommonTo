@@ -19,7 +19,6 @@
 
         #ManagerBrandingLoadingIconLoadingAnimatedPath_Ex6s89 {
           animation: ManagerBrandingLoadingIconLoadingDrawPath_Ex6s89 10s infinite linear;
-          /* You can change the stroke color here stroke: #203864; */
           stroke-width: 12;
           stroke-linecap: round;
           stroke-linejoin: round;
