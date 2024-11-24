@@ -215,7 +215,7 @@ footer .container {
 </style>
 </head>
 <body>
-   <header>
+  <header>
     <div class="container">
       <h1 class="logoWordmark">
         <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
@@ -235,14 +235,6 @@ footer .container {
             <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> Export 导出</a></li>
             <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> Setting 设置</a></li>
             <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-code-commit"></i> Deploy 应用</a></li>
-            <!--             <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> 创建</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> 层级</a></li>
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> 优化</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list"></i> 管理</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> 导入</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> 导出</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> 设置</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-user-check"></i> 部署</a></li> -->
           </div>
         </ul>
       </nav>
@@ -250,7 +242,7 @@ footer .container {
   </header>
   <main class="scrollable-container top-mask bottom-mask">
 
-        <div class="jumpToLoading" style="width:10em; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+    <div class="jumpToLoading" style="width:10em; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
       <svg viewBox="0 0 379 379" overflow="hidden">
         <style>
           @keyframes drawPath {
@@ -286,14 +278,14 @@ footer .container {
         </g>
       </svg>
     </div>
-    
+
     <section id="create-link" class="section hidden">
       <div class="container">
         <h2>Create New Short Link</h2>
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -307,7 +299,7 @@ footer .container {
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -321,7 +313,7 @@ footer .container {
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -335,7 +327,7 @@ footer .container {
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -349,7 +341,7 @@ footer .container {
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -363,7 +355,7 @@ footer .container {
         <form id="create-link-form">
           <div class="form-group">
             <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required="">
+            <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
             <button type="submit">Create</button>
@@ -375,7 +367,7 @@ footer .container {
         </div>
       </div>
     </section>
-    <section id="manage-links" class="section visible">
+    <section id="manage-links" class="section hidden">
       <div class="container">
         <h2>Manage Short Links</h2>
         <table id="link-table">
@@ -408,7 +400,7 @@ footer .container {
         </div>
         <div class="form-group">
           <label for="json-output">Exported JSON:</label>
-          <textarea id="json-output" readonly=""></textarea>
+          <textarea id="json-output" readonly></textarea>
           <button onclick="exportJson()">Export</button>
         </div>
       </div>
@@ -424,9 +416,10 @@ footer .container {
           <sub><sup><sup><sub>V0.0.3</sub></sup></sup></sub>
         </span>
       </span>
-      <span style="font-size:0.7em;font-weight:600; margin:0.5em 0;">
+      <span style="font-size:0.7em;font-weight:600;margin:0.5em 0;">
         JumpTo | Document | Github | Feedback | Contact | LocalWu <br>
-          <span style="font-weight:400;">Copyright © 2024 LocalWu. LocalWu Matrix. All Rights Reserved.</span>
+        <span style="font-size:0.7em;font-weight:400;">Copyright © 2024 LocalWu. LocalWu Matrix. All Rights Reserved.
+        </span>
       </span>
       <span style="font-weight:900;">
         <sub><sup>
@@ -560,9 +553,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
     </script>
-
-  
-
-
-
 </body></html>
