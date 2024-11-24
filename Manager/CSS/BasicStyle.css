@@ -165,7 +165,7 @@ table th {
 footer {
   color: #203864;
   padding: 1em 2em;
-  text-align: center;
+  /*   text-align: center; */
 }
 
 footer a {
@@ -178,7 +178,7 @@ footer .logoWordmark {
 
 footer .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
