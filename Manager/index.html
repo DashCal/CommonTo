@@ -1,7 +1,7 @@
-<html lang="en"><head>
+<html lang="zh-CN"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JumpTo Manager - Local Wu</title>
+  <title>JumpTo Manager V0.0.3 - JumpTo - Local Wu</title>
   <link rel="icon" type="image/svg+xml" href="https://to.localwu.top/Branding/Icon/Icon.svg?v=202411110500">
   <link rel="icon" type="image/png" href="https://to.localwu.top/Branding/Icon/Icon.png?v=202411110500">
   <link rel="stylesheet" href="https://dist.localwu.top/CSS/Font/BasicFonts.css?v=202411110500">
@@ -18,9 +18,20 @@ body {
   font-family: Inter, Noto_Sans, system-ui, —apple-system, Segoe UI, Roboto,
     Emoji, Helvetica, Arial, sans-serif;
   letter-spacing: -0.05em;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 header {
@@ -67,6 +78,21 @@ header nav ul li a {
 header nav ul li a:hover {
   background-color: #203864;
   color: #f4f4f4;
+}
+
+main {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
 .section {
@@ -143,33 +169,72 @@ table th {
   margin-top: 20px;
   text-align: right;
 }
+
+footer {
+  color: #203864;
+  background: #f4f4f4;
+  padding: 1em 2em;
+  text-align: center;
+}
+
+footer .logoWordmark {
+  margin-right: 0.5em;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.scrollable-container {
+  --show-top-mask: 0;
+  --show-bottom-mask: 0;
+  --mask-size: 25px;
+  --gradient: linear-gradient(
+    to bottom,
+    transparent 0%,
+    white calc(var(--show-top-mask) * var(--mask-size)),
+    white calc(100% - calc(var(--mask-size) * var(--show-bottom-mask))),
+    transparent 100%
+  );
+  -webkit-mask: var(--gradient);
+  mask: var(--gradient);
+}
+
+.top-mask {
+  --show-top-mask: 1;
+}
+
+.bottom-mask {
+  --show-bottom-mask: 1;
+}
 </style>
 </head>
 <body>
-  <header>
+   <header>
     <div class="container">
       <h1 class="logoWordmark">
         <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
         <span style="font-weight:900;">JumpTo</span>
         <span style="font-weight:400;letter-spacing:-.08em;">Manager</span>
-        <!--       <span style="font-weight:900;">
-        <sub><sup>
-            <sup><sub>[</sub></sup>5<sup><sub>]</sub></sup>
-            <span style="font-weight:900;"> LocalWu Matrix</span>
-          </sup></sub>
-      </span> -->
       </h1>
       <nav style="margin-left: -.5em;">
         <ul>
           <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: center;justify-content: flex-start;align-items: center;">
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> Build</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> Layer</a></li>
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> Optimize</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list"></i> Manage</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> Import</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> Export</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> Setting</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-user-check"></i> Deploy</a></li>
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> New 新建</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> Layer 层级</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-ruler"></i> Rule 规则</a></li>
+            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list-check"></i> Manage 管理</a></li>
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> Optimize 优化</a></li>
+            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-flask"></i> Simulate 模拟</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> Import 导入</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> Export 导出</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> Setting 设置</a></li>
+            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-code-commit"></i> Deploy 应用</a></li>
             <!--             <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> 创建</a></li>
             <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> 层级</a></li>
             <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> 优化</a></li>
@@ -183,7 +248,7 @@ table th {
       </nav>
     </div>
   </header>
-  <main>
+  <main class="scrollable-container top-mask bottom-mask">
     <section id="create-link" class="section hidden">
       <div class="container">
         <h2>Create New Short Link</h2>
@@ -200,9 +265,79 @@ table th {
           <h3>Short Link Preview:</h3>
           <p id="short-link-preview"></p>
         </div>
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
+        <h2>Create New Short Link</h2>
+        <form id="create-link-form">
+          <div class="form-group">
+            <label for="long-url">Long URL:</label>
+            <input type="text" id="long-url" name="long-url" required="">
+          </div>
+          <div class="form-group">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+        <div class="result">
+          <h3>Short Link Preview:</h3>
+          <p id="short-link-preview"></p>
+        </div>
       </div>
     </section>
-    <section id="manage-links" class="section hidden">
+    <section id="manage-links" class="section visible">
       <div class="container">
         <h2>Manage Short Links</h2>
         <table id="link-table">
@@ -241,9 +376,32 @@ table th {
       </div>
     </section>
   </main>
-
-
-  
+  <footer>
+    <div class="container">
+      <span class="logoWordmark">
+        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
+        <span style="font-weight:900;">JumpTo</span>
+        <span style="font-weight:400;letter-spacing:-.08em;">Manager</span>
+        <span style="font-weight:400;">
+          <sub><sup><sup><sub>V0.0.3</sub></sup></sup></sub>
+        </span>
+      </span>
+      <span style="font-size:0.6em;font-weight:600; margin:0.5em 0;">
+        JumpTo | Document | Github | Feedback | Contact | LocalWu <br>
+        <sub>
+          <span style="font-size:0.6em;font-weight:400;">Copyright © 2024 LocalWu. LocalWu Matrix. All Rights Reserved.
+          </span>
+        </sub>
+      </span>
+      <span style="font-weight:900;">
+        <sub><sup>
+            <sup><sub>[</sub></sup><span style="font-size:1.6em">5</span><sup><sub>]</sub></sup>
+            <span> LocalWu Matrix</span>
+            <span style="font-weight:500;"> Presents.</span>
+          </sup></sub>
+      </span>
+    </div>
+  </footer>
       <script id="rendered-js">
 // JavaScript to handle the front-end interactions
 
