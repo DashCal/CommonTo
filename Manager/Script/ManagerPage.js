@@ -39,6 +39,8 @@ document
     // updateLinkTable();
   });
 
+showSection("Prepare");
+
 // Function to sort links (by ID in this case
 
 document.addEventListener("DOMContentLoaded", () => {
