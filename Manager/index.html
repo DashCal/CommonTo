@@ -2,223 +2,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JumpTo Manager V0.0.3 - JumpTo - Local Wu</title>
-  <link rel="icon" type="image/svg+xml" href="https://to.localwu.top/Branding/Icon/Icon.svg?v=202411110500">
-  <link rel="icon" type="image/png" href="https://to.localwu.top/Branding/Icon/Icon.png?v=202411110500">
+  <link rel="icon" type="image/svg+xml" href="https://to.localwu.top/Manager/Branding/Icon/Icon.svg?v=202411250500">
+<!--   <link rel="icon" type="image/png" href="https://to.localwu.top/Branding/Icon/Icon.png?v=202411110500"> -->
   <link rel="stylesheet" href="https://dist.localwu.top/CSS/Font/BasicFonts.css?v=202411110500">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://to.localwu.top/Manager/CSS/BasicStyle.css?v=202411250500">
+  <script src="https://to.localwu.top/Manager/Script/ManagerPage.js?v=202411250500"></script>
   <script data-goatcounter="https://localwu.goatcounter.com/count" async="" src="https://dist.localwu.top/Script/WebAnalytics/GoatCounter.js?v=202411110500"></script>
-<style>
-@font-face {
-  font-family: Emoji;
-  src: local("Apple Color Emoji"), local("Segoe UI Emoji"),
-    local("Segoe UI Symbol"), local("Noto Color Emoji");
-  unicode-range: U+1F000-1F644, U+203C-3299;
-}
-body {
-  font-family: Inter, Noto_Sans, system-ui, —apple-system, Segoe UI, Roboto,
-    Emoji, Helvetica, Arial, sans-serif;
-  letter-spacing: -0.05em;
-  font-weight: 400;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: space-between;
-  align-items: stretch;
-  color: #203864;
-  background: #f4f4f4;
-}
-
-header {
-  color: #203864;
-  padding: 1em 2em;
-  text-align: center;
-}
-
-header .logoWordmark {
-  margin-right: 0.5em;
-}
-
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-header nav ul li {
-  margin: 0.5em 0;
-  margin-right: 0.5em;
-}
-
-header nav ul li a {
-  color: #203864;
-  text-decoration: none;
-  font-size: 0.9em;
-  padding: 4px 8px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-header nav ul li a:hover {
-  background-color: #203864;
-  color: #f4f4f4;
-}
-
-main {
-  width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: 100%;
-  max-height: 100%;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-.section {
-  padding: 1em 2em;
-  color: #000000;
-  display: none; /* Hidden by default */
-}
-
-.section.hidden {
-  display: none;
-}
-
-.section.visible {
-  display: block;
-}
-
-h2 {
-  margin-top: 0;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 15px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #555;
-}
-
-.result {
-  margin-top: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-table th {
-  background-color: #f2f2f2;
-}
-
-.buttons {
-  margin-top: 20px;
-  text-align: right;
-}
-
-footer {
-  color: #203864;
-  padding: 1em 2em;
-  text-align: center;
-}
-
-footer .logoWordmark {
-  margin-right: 0.5em;
-}
-
-footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-.scrollable-container {
-  --show-top-mask: 0;
-  --show-bottom-mask: 0;
-  --mask-size: 25px;
-  --gradient: linear-gradient(
-    to bottom,
-    transparent 0%,
-    white calc(var(--show-top-mask) * var(--mask-size)),
-    white calc(100% - calc(var(--mask-size) * var(--show-bottom-mask))),
-    transparent 100%
-  );
-  -webkit-mask: var(--gradient);
-  mask: var(--gradient);
-}
-
-.top-mask {
-  --show-top-mask: 1;
-}
-
-.bottom-mask {
-  --show-bottom-mask: 1;
-}
-</style>
 </head>
 <body>
   <header>
     <div class="container">
       <h1 class="logoWordmark">
-        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
+        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Manager/Branding/Icon/Icon.svg?v=202411250500">
         <span style="font-weight:900;">JumpTo</span>
         <span style="font-weight:400;letter-spacing:-.08em;">Manager</span>
       </h1>
@@ -241,43 +37,6 @@ footer .container {
     </div>
   </header>
   <main class="scrollable-container top-mask bottom-mask">
-
-    <div class="jumpToLoading" style="width:10em; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
-      <svg viewBox="0 0 379 379" overflow="hidden">
-        <style>
-          @keyframes drawPath {
-            0% {
-              stroke-dasharray: 0, 2800;
-              stroke-dashoffset: 0;
-            }
-
-            50% {
-              stroke-dasharray: 2800, 0;
-              stroke-dashoffset: -2800;
-            }
-
-            100% {
-              stroke-dasharray: 0, 2800;
-              stroke-dashoffset: 0;
-            }
-          }
-
-          #animated-path0 {
-            animation: drawPath 10s infinite linear;
-            stroke: #203864;
-            /* You can change the stroke color here */
-            stroke-width: 10;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-miterlimit: 10;
-            fill: none;
-          }
-        </style>
-        <g transform="translate(-1008 -765)">
-          <path id="animated-path0" d="M1293.15 957.769C1259.47 1010.66 1189.54 1026.3 1136.97 992.718 1084.39 959.132 1069.08 889.03 1102.76 836.141 1136.44 783.254 1206.37 767.606 1258.94 801.192 1311.51 834.779 1317.32 907.645 1294.67 953.768 1292.43 958.319 1293.64 956.703 1313.49 957.143L1365.5 957.042C1365.27 981.684 1364.79 1017.44 1365.23 1040.84 1343.03 1063.96 1314.2 1091.27 1280.23 1126.5L1029.5 1125.44 1029.5 1041.11 1115.3 957.042 1365.36 957.043 1279.17 1041.38 1280.3 1126.44 1279.17 1041.64 1030.03 1041.64" stroke="CurrentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" fill-rule="evenodd" />
-        </g>
-      </svg>
-    </div>
 
     <section id="create-link" class="section hidden">
       <div class="container">
@@ -409,7 +168,7 @@ footer .container {
   <footer>
     <div class="container">
       <span class="logoWordmark">
-        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Branding/Icon/Icon.svg">
+        <img style="height: 1.1em; width: 1.1em;" src="https://to.localwu.top/Manager/Branding/Icon/Icon.svg?v=202411250500">
         <span style="font-weight:900;">JumpTo</span>
         <span style="font-weight:400;letter-spacing:-.08em;">Manager</span>
         <span style="font-weight:400;">
@@ -430,127 +189,44 @@ footer .container {
       </span>
     </div>
   </footer>
-      <script id="rendered-js">
-// JavaScript to handle the front-end interactions
 
-// Simulated short link generation (just for demonstration)
-let shortLinkCounter = 1;
+  <div id="JumpToLoading" style="width:6em; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);">
+    <svg viewBox="0 0 379 379" overflow="hidden">
+      <style>
+        @keyframes drawPath {
+          0% {
+            stroke-dasharray: 0, 2800;
+            stroke-dashoffset: 0;
+          }
 
-// Storage for links (simulated database)
-let links = [];
+          50% {
+            stroke-dasharray: 2800, 0;
+            stroke-dashoffset: -2800;
+          }
 
-// Function to show a specific section
-function showSection(sectionId) {
-  const sections = document.querySelectorAll(".section");
-  sections.forEach((section) => {
-    section.classList.remove("visible");
-    section.classList.add("hidden");
-  });
+          100% {
+            stroke-dasharray: 0, 2800;
+            stroke-dashoffset: 0;
+          }
+        }
 
-  const targetSection = document.getElementById(sectionId);
-  targetSection.classList.remove("hidden");
-  targetSection.classList.add("visible");
-}
+        #animated-path0 {
+          animation: drawPath 10s infinite linear;
+          stroke: #203864;
+          /* You can change the stroke color here */
+          stroke-width: 12;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-miterlimit: 10;
+          fill: none;
+        }
+      </style>
+      <g transform="translate(-1008 -765)">
+        <path d="M1293.15 957.769C1259.47 1010.66 1189.54 1026.3 1136.97 992.718 1084.39 959.132 1069.08 889.03 1102.76 836.141 1136.44 783.254 1206.37 767.606 1258.94 801.192 1311.51 834.779 1317.32 907.645 1294.67 953.768 1292.43 958.319 1293.64 956.703 1313.49 957.143L1365.5 957.042C1365.27 981.684 1364.79 1017.44 1365.23 1040.84 1343.03 1063.96 1314.2 1091.27 1280.23 1126.5L1029.5 1125.44 1029.5 1041.11 1115.3 957.042 1365.36 957.043 1279.17 1041.38 1280.3 1126.44 1279.17 1041.64 1030.03 1041.64" stroke="#bcbcbc" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" fill-rule="evenodd" />
+        <path id="animated-path0" d="M1293.15 957.769C1259.47 1010.66 1189.54 1026.3 1136.97 992.718 1084.39 959.132 1069.08 889.03 1102.76 836.141 1136.44 783.254 1206.37 767.606 1258.94 801.192 1311.51 834.779 1317.32 907.645 1294.67 953.768 1292.43 958.319 1293.64 956.703 1313.49 957.143L1365.5 957.042C1365.27 981.684 1364.79 1017.44 1365.23 1040.84 1343.03 1063.96 1314.2 1091.27 1280.23 1126.5L1029.5 1125.44 1029.5 1041.11 1115.3 957.042 1365.36 957.043 1279.17 1041.38 1280.3 1126.44 1279.17 1041.64 1030.03 1041.64" stroke="CurrentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none" fill-rule="evenodd" />
+      </g>
+    </svg>
+  </div>
 
-// Function to create a new short link
-document
-  .getElementById("create-link-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const longUrl = document.getElementById("long-url").value;
-    const shortUrl = `http://to.localwu.top/${shortLinkCounter++}er35s6`;
-
-    links.push({ id: links.length + 1, longUrl, shortUrl });
-
-    document.getElementById("short-link-preview").textContent = shortUrl;
-
-    // Optionally, you could clear the input field here
-    // document.getElementById('long-url').value = '';
-
-    // Update the table with the new link (this part is optional, as we're not displaying it initially)
-    // updateLinkTable();
-  });
-
-// Function to sort links (by ID in this case
-
-document.addEventListener("DOMContentLoaded", () => {
-  // 初始化链接列表
-  const links = [];
-  let currentLinkId = 1;
-
-  // 显示特定部分
-  function showSection(sectionId) {
-    document.querySelectorAll(".section").forEach((section) => {
-      section.classList.add("hidden");
-    });
-    document.getElementById(sectionId).classList.remove("hidden");
-  }
-
-  // 创建新链接
-  document
-    .getElementById("create-link-form")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
-      const longUrl = document.getElementById("long-url").value;
-      const shortUrl = `http://to.localwu.top/${currentLinkId}6k8xa`;
-      const newLink = { id: currentLinkId, longUrl, shortUrl };
-      links.push(newLink);
-      currentLinkId++;
-      updateLinkTable();
-      document.getElementById("long-url").value = "";
-      document.getElementById("short-link-preview").textContent = shortUrl;
-      showSection("manage-links"); // 创建后自动跳转到管理链接页面
-    });
-
-  // 更新链接表
-  function updateLinkTable() {
-    const tbody = document
-      .getElementById("link-table")
-      .getElementsByTagName("tbody")[0];
-    tbody.innerHTML = "";
-    links.forEach((link) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-                <td>${link.id}</td>
-                <td>${link.longUrl}</td>
-                <td>${link.shortUrl}</td>
-                <td><button onclick="deleteLink(${link.id})">Delete</button></td>
-            `;
-      tbody.appendChild(row);
-    });
-  }
-
-  // 删除链接
-  function deleteLink(id) {
-    links = links.filter((link) => link.id !== id);
-    updateLinkTable();
-  }
-
-  // 排序链接
-  function sortLinks() {
-    links.sort((a, b) => a.id - b.id);
-    updateLinkTable();
-  }
-
-  // 导入JSON
-  function importJson() {
-    const jsonInput = document.getElementById("json-input").value;
-    try {
-      const importedLinks = JSON.parse(jsonInput);
-      links.splice(0, links.length, ...importedLinks);
-      currentLinkId = links.length ? links[links.length - 1].id + 1 : 1;
-      updateLinkTable();
-    } catch (e) {
-      alert("Invalid JSON format!");
-    }
-  }
-
-  // 导出JSON
-  function exportJson() {
-    const jsonOutput = JSON.stringify(links, null, 2);
-    document.getElementById("json-output").value = jsonOutput;
-  }
-});
-    </script>
-</body></html>
+</body>
+</html>
