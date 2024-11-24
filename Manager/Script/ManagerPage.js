@@ -19,6 +19,8 @@ function showSection(sectionId) {
   targetSection.classList.add("visible");
 }
 
+showSection("Prepare");
+
 // Function to create a new short link
 document
   .getElementById("create-link-form")
@@ -38,9 +40,6 @@ document
     // Update the table with the new link (this part is optional, as we're not displaying it initially)
     // updateLinkTable();
   });
-
-showSection("Prepare");
-
 // Function to sort links (by ID in this case
 
 document.addEventListener("DOMContentLoaded", () => {
