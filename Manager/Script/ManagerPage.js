@@ -35,7 +35,6 @@ function cancleAllBtnActive() {
     managerBtn.classList.remove("active");
   });
 }
-
 function activeManagerBtn(managerBtnId) {
   cancleAllBtnActive();
   const targetmanagerBtn = document.getElementById(managerBtnId);
@@ -44,17 +43,31 @@ function activeManagerBtn(managerBtnId) {
   }
 }
 
-function onLoad() {
-  showSection("NewManager");
-}
+function onLoad() {}
 
-window.onload = function () {
-  onLoad();
-};
+// window.onload = function () {
+
+// };
 
 document.addEventListener("DOMContentLoaded", function () {
+  let primaryLoaded = 0;
   let shortLinkCounter = 1;
   let links = [];
   let currentLinkId = 1;
   showPrepare();
+
+  window.addEventListener("load", function () {
+    if (primaryLoaded == 0) {
+      showSection("NewManager");
+      primaryLoaded = 1;
+    }
+    // onLoad();
+  });
+
+  setTimeout(function () {
+    if (primaryLoaded == 0) {
+      showSection("NewManager");
+      primaryLoaded = 1;
+    }
+  }, 10000);
 });
