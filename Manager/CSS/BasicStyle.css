@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: Emoji;
   src: local("Apple Color Emoji"), local("Segoe UI Emoji"),
@@ -88,8 +89,7 @@ main {
 .section {
   padding: 1em 2em;
   color: #000000;
-  height: fit-content;
-  min-height: 100%;
+  height: 100%;
   display: none; /* Hidden by default */
 }
 
@@ -185,6 +185,7 @@ footer .container {
   flex-wrap: wrap;
   align-content: center;
 }
+
 
 .scrollable-container {
   --show-top-mask: 0;
