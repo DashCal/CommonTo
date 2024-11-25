@@ -1,115 +1,77 @@
-// JavaScript to handle the front-end interactions
+document.addEventListener("DOMContentLoaded", function () {
+  let shortLinkCounter = 1;
+  let links = [];
+  let currentLinkId = 1; // 用于生成短链接ID
 
-// Simulated short link generation (just for demonstration)
-let shortLinkCounter = 1;
-
-// Storage for links (simulated database)
-let links = [];
-
-// Function to show a specific section
-function showSection(sectionId) {
-  const sections = document.querySelectorAll(".section");
-  sections.forEach((section) => {
-    if (section.classList.contains("visible")) {
+  // Function to show a specific section
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => {
       section.classList.remove("visible");
       section.classList.add("hidden");
-    }
-  });
-
-  const targetSection = document.getElementById(sectionId);
-  if (targetSection.classList.contains("hidden")) {
-    targetSection.classList.remove("hidden");
-    targetSection.classList.add("visible");
-  }
-}
-showSection("Prepare");
-
-window.οnlοad = function () {
-  // Function to create a new short link
-  document
-    .getElementById("create-link-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const longUrl = document.getElementById("long-url").value;
-      const shortUrl = `http://to.localwu.top/${shortLinkCounter++}er35s6`;
-
-      links.push({ id: links.length + 1, longUrl, shortUrl });
-
-      document.getElementById("short-link-preview").textContent = shortUrl;
-
-      // Optionally, you could clear the input field here
-      // document.getElementById('long-url').value = '';
-
-      // Update the table with the new link (this part is optional, as we're not displaying it initially)
-      // updateLinkTable();
     });
-};
-// Function to sort links (by ID in this case
-document.addEventListener("DOMContentLoaded", () => {
-  // 初始化链接列表
-  const links = [];
-  let currentLinkId = 1;
 
-  // 显示特定部分
-  function showSection(sectionId) {
-    document.querySelectorAll(".section").forEach((section) => {
-      if (!section.classList.contains("hidden")) {
-        section.classList.add("hidden");
-      }
-    });
-    if (section.classList.contains("hidden")) {
-      document.getElementById(sectionId).classList.remove("hidden");
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      targetSection.classList.remove("hidden");
+      targetSection.classList.add("visible");
     }
   }
 
-  // 创建新链接
-  document
-    .getElementById("create-link-form")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
-      const longUrl = document.getElementById("long-url").value;
-      const shortUrl = `http://to.localwu.top/${currentLinkId}6k8xa`;
-      const newLink = { id: currentLinkId, longUrl, shortUrl };
-      links.push(newLink);
-      currentLinkId++;
-      updateLinkTable();
-      document.getElementById("long-url").value = "";
-      document.getElementById("short-link-preview").textContent = shortUrl;
-      showSection("manage-links"); // 创建后自动跳转到管理链接页面
-    });
-
-  // 更新链接表
+  // Function to update the link table
   function updateLinkTable() {
-    const tbody = document
-      .getElementById("link-table")
-      .getElementsByTagName("tbody")[0];
+    const tbody = document.getElementById("link-table").getElementsByTagName("tbody")[0];
     tbody.innerHTML = "";
     links.forEach((link) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-                <td>${link.id}</td>
-                <td>${link.longUrl}</td>
-                <td>${link.shortUrl}</td>
-                <td><button onclick="deleteLink(${link.id})">Delete</button></td>
-            `;
+        <td>${link.id}</td>
+        <td>${link.longUrl}</td>
+        <td>${link.shortUrl}</td>
+        <td><button onclick="deleteLink(${link.id})">Delete</button></td>
+      `;
       tbody.appendChild(row);
     });
   }
 
-  // 删除链接
+  // Function to delete a link
   function deleteLink(id) {
     links = links.filter((link) => link.id !== id);
     updateLinkTable();
   }
 
-  // 排序链接
+  // Function to create a new short link
+  document.getElementById("create-link-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const longUrl = document.getElementById("long-url").value;
+    let shortUrl;
+    if (document.getElementById("short-link-preview-custom")) {
+      // 假设有一个自定义短链接输入的字段
+      shortUrl = document.getElementById("short-link-preview-custom").value;
+    } else {
+      shortUrl = `http://to.localwu.top/${currentLinkId++}6k8xa`;
+    }
+
+    const newLink = { id: links.length + 1, longUrl, shortUrl };
+    links.push(newLink);
+
+    document.getElementById("short-link-preview").textContent = shortUrl;
+    document.getElementById("long-url").value = "";
+    showSection("manage-links"); // Optionally show the manage links section
+    updateLinkTable();
+  });
+
+  // Initially show the Prepare section
+  showSection("Prepare");
+
+  // Sorting links (not strictly necessary in this example, but included for completeness)
   function sortLinks() {
     links.sort((a, b) => a.id - b.id);
     updateLinkTable();
   }
 
-  // 导入JSON
+  // Import JSON functionality
   function importJson() {
     const jsonInput = document.getElementById("json-input").value;
     try {
@@ -122,9 +84,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 导出JSON
+  // Export JSON functionality
   function exportJson() {
     const jsonOutput = JSON.stringify(links, null, 2);
     document.getElementById("json-output").value = jsonOutput;
   }
+
+  // Attaching event listeners for sorting and JSON import/export (if needed)
+  // document.getElementById("sort-button").addEventListener("click", sortLinks);
+  // document.getElementById("import-button").addEventListener("click", importJson);
+  // document.getElementById("export-button").addEventListener("click", exportJson);
 });
