@@ -1,3 +1,5 @@
+let primaryLoaded = 0;
+
 function showPrepare() {
   hideAllSection();
   showIt("PrepareManager");
@@ -21,12 +23,13 @@ function showIt(sectionId) {
 }
 
 function showSection(sectionId) {
+  if(primaryLoaded==1){
   showPrepare();
   activeManagerBtn(sectionId + "Btn");
   setTimeout(function () {
     hideAllSection();
     showIt(sectionId);
-  }, 1200);
+  }, 1200);}
 }
 
 function cancleAllBtnActive() {
@@ -50,7 +53,6 @@ function onLoad() {}
 // };
 
 document.addEventListener("DOMContentLoaded", function () {
-  let primaryLoaded = 0;
   let shortLinkCounter = 1;
   let links = [];
   let currentLinkId = 1;
