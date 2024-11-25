@@ -22,31 +22,30 @@ function showSection(sectionId) {
     targetSection.classList.add("visible");
   }
 }
-
-// Function to create a new short link
-document
-  .getElementById("create-link-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const longUrl = document.getElementById("long-url").value;
-    const shortUrl = `http://to.localwu.top/${shortLinkCounter++}er35s6`;
-
-    links.push({ id: links.length + 1, longUrl, shortUrl });
-
-    document.getElementById("short-link-preview").textContent = shortUrl;
-
-    // Optionally, you could clear the input field here
-    // document.getElementById('long-url').value = '';
-
-    // Update the table with the new link (this part is optional, as we're not displaying it initially)
-    // updateLinkTable();
-  });
-
 showSection("Prepare");
 
-// Function to sort links (by ID in this case
+window.οnlοad = function () {
+  // Function to create a new short link
+  document
+    .getElementById("create-link-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
+      const longUrl = document.getElementById("long-url").value;
+      const shortUrl = `http://to.localwu.top/${shortLinkCounter++}er35s6`;
+
+      links.push({ id: links.length + 1, longUrl, shortUrl });
+
+      document.getElementById("short-link-preview").textContent = shortUrl;
+
+      // Optionally, you could clear the input field here
+      // document.getElementById('long-url').value = '';
+
+      // Update the table with the new link (this part is optional, as we're not displaying it initially)
+      // updateLinkTable();
+    });
+};
+// Function to sort links (by ID in this case
 document.addEventListener("DOMContentLoaded", () => {
   // 初始化链接列表
   const links = [];
