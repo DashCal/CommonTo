@@ -23,13 +23,14 @@ function showIt(sectionId) {
 }
 
 function showSection(sectionId) {
-  if(primaryLoaded==1){
-  showPrepare();
-  activeManagerBtn(sectionId + "Btn");
-  setTimeout(function () {
-    hideAllSection();
-    showIt(sectionId);
-  }, 1200);}
+  if (primaryLoaded == 1) {
+    showPrepare();
+    activeManagerBtn(sectionId + "Btn");
+    setTimeout(function () {
+      hideAllSection();
+      showIt(sectionId);
+    }, 1200);
+  }
 }
 
 function cancleAllBtnActive() {
@@ -49,7 +50,6 @@ function activeManagerBtn(managerBtnId) {
 function onLoad() {}
 
 // window.onload = function () {
-
 // };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -60,16 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("load", function () {
     if (primaryLoaded == 0) {
-      showSection("NewManager");
       primaryLoaded = 1;
+      showSection("NewManager");
     }
     // onLoad();
   });
 
   setTimeout(function () {
     if (primaryLoaded == 0) {
-      showSection("NewManager");
       primaryLoaded = 1;
+      showSection("NewManager");
     }
   }, 10000);
 });
