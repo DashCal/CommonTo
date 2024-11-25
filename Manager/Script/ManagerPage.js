@@ -10,16 +10,18 @@ let links = [];
 function showSection(sectionId) {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
-    section.classList.remove("visible");
-    section.classList.add("hidden");
+    if (section.classList.contains("visible")) {
+      section.classList.remove("visible");
+      section.classList.add("hidden");
+    }
   });
 
   const targetSection = document.getElementById(sectionId);
-  targetSection.classList.remove("hidden");
-  targetSection.classList.add("visible");
+  if (targetSection.classList.contains("hidden")) {
+    targetSection.classList.remove("hidden");
+    targetSection.classList.add("visible");
+  }
 }
-
-showSection("Prepare");
 
 // Function to create a new short link
 document
@@ -40,6 +42,9 @@ document
     // Update the table with the new link (this part is optional, as we're not displaying it initially)
     // updateLinkTable();
   });
+
+showSection("Prepare");
+
 // Function to sort links (by ID in this case
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -50,9 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // 显示特定部分
   function showSection(sectionId) {
     document.querySelectorAll(".section").forEach((section) => {
-      section.classList.add("hidden");
+      if (!section.classList.contains("hidden")) {
+        section.classList.add("hidden");
+      }
     });
-    document.getElementById(sectionId).classList.remove("hidden");
+    if (section.classList.contains("hidden")) {
+      document.getElementById(sectionId).classList.remove("hidden");
+    }
   }
 
   // 创建新链接
