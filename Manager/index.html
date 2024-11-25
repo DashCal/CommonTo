@@ -6,10 +6,11 @@
   <link rel="icon" type="image/png" href="https://to.localwu.top/Manager/Branding/Icon/Icon.png?v=202411110500">
   <link rel="stylesheet" href="https://dist.localwu.top/CSS/Font/BasicFonts.css?v=202411110500">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://to.localwu.top/Manager/CSS/BasicStyle.css?v=202411251630">
-  <script src="https://to.localwu.top/Manager/Script/ManagerPage.js?v=202411251630"></script>
+  <link rel="stylesheet" href="https://to.localwu.top/Manager/CSS/BasicStyle.css?v=202411251809">
+  <script src="https://to.localwu.top/Manager/Script/ManagerPage.js?v=202411251809"></script>
   <script data-goatcounter="https://localwu.goatcounter.com/count" async="" src="https://dist.localwu.top/Script/WebAnalytics/GoatCounter.js?v=202411110500"></script>
 </head>
+<body>
 <body>
   <header>
     <div class="container">
@@ -21,29 +22,30 @@
       <nav style="margin-left: -.5em;">
         <ul>
           <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-content: center;justify-content: flex-start;align-items: center;">
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-plus"></i> New 新建</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-layer-group"></i> Layer 层级</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-ruler"></i> Rule 规则</a></li>
-            <li><a href="#" onclick="showSection('manage-links')"><i class="fas fa-list-check"></i> Manage 管理</a></li>
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-ruler-combined"></i> Optimize 优化</a></li>
-            <li><a href="#" onclick="showSection('create-link')"><i class="fas fa-flask"></i> Simulate 模拟</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-import"></i> Import 导入</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-file-export"></i> Export 导出</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-tools"></i> Setting 设置</a></li>
-            <li><a href="#" onclick="showSection('import-export')"><i class="fas fa-code-commit"></i> Deploy 应用</a></li>
+            <li><a id="NewManagerBtn" class="managerBtn" href="#New" onclick="showSection('NewManager')"><i class="fas fa-plus"></i> New 新建</a></li>
+            <li><a id="LayerManagerBtn" class="managerBtn" href="#Layer" onclick="showSection('LayerManager')"><i class="fas fa-layer-group"></i> Layer 层级</a></li>
+            <li><a id="RuleManagerBtn" class="managerBtn" href="#Rule" onclick="showSection('RuleManager')"><i class="fas fa-ruler"></i> Rule 规则</a></li>
+            <li><a id="ItemManagerBtn" class="managerBtn" href="#Manage" onclick="showSection('ItemManager')"><i class="fas fa-list-check"></i> Manage 管理</a></li>
+            <li><a id="OptimizeManagerBtn" class="managerBtn" href="#Optimize" onclick="showSection('OptimizeManager')"><i class="fas fa-ruler-combined"></i> Optimize 优化</a></li>
+            <li><a id="SimulateManagerBtn" class="managerBtn" href="#Simulate" onclick="showSection('SimulateManager')"><i class="fas fa-flask"></i> Simulate 模拟</a></li>
+            <li><a id="ImportManagerBtn" class="managerBtn" href="#Import" onclick="showSection('ImportManager')"><i class="fas fa-file-import"></i> Import 导入</a></li>
+            <li><a id="ExportManagerBtn" class="managerBtn" href="#Export" onclick="showSection('ExportManager')"><i class="fas fa-file-export"></i> Export 导出</a></li>
+            <li><a id="SettingManagerBtn" class="managerBtn" href="#Setting" onclick="showSection('SettingManager')"><i class="fas fa-tools"></i> Setting 设置</a></li>
+            <li><a id="DeployManagerBtn" class="managerBtn" href="#Deploy" onclick="showSection('DeployManager')"><i class="fas fa-code-commit"></i> Deploy 应用</a></li>
           </div>
         </ul>
       </nav>
     </div>
   </header>
-  <main class="scrollable-container top-mask bottom-mask">
-    <section id="Prepare" class="section prepare visible">
-      <div id="JumpToLoading" style="width:6em;height:6em;">
+  <!--  scrollable-container top-mask bottom-mask  -->
+  <main class="">
+    <section id="PrepareManager" class="section visible">
+      <div id="JumpToLoading" class="prepare" style="width:100%;height:100%;">
         <img style="width:6em;height:6em;" src="https://to.localwu.top/Manager/Branding/Loading/IconLoading.svg?v=202411250620">
       </div>
     </section>
 
-    <section id="create-link" class="section hidden">
+    <section id="NewManager" class="section hidden">
       <div class="container">
         <h2>Create New Short Link</h2>
         <form id="create-link-form">
@@ -52,123 +54,57 @@
             <input type="text" id="long-url" name="long-url" required>
           </div>
           <div class="form-group">
-            <button type="submit">Create</button>
+            <button>Create</button>
           </div>
         </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
-        <h2>Create New Short Link</h2>
-        <form id="create-link-form">
-          <div class="form-group">
-            <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
-        <h2>Create New Short Link</h2>
-        <form id="create-link-form">
-          <div class="form-group">
-            <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
-        <h2>Create New Short Link</h2>
-        <form id="create-link-form">
-          <div class="form-group">
-            <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
-        <h2>Create New Short Link</h2>
-        <form id="create-link-form">
-          <div class="form-group">
-            <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
-        <h2>Create New Short Link</h2>
-        <form id="create-link-form">
-          <div class="form-group">
-            <label for="long-url">Long URL:</label>
-            <input type="text" id="long-url" name="long-url" required>
-          </div>
-          <div class="form-group">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <div class="result">
-          <h3>Short Link Preview:</h3>
-          <p id="short-link-preview"></p>
-        </div>
       </div>
     </section>
-    <section id="manage-links" class="section hidden">
+    <section id="LayerManager" class="section hidden">
       <div class="container">
-        <h2>Manage Short Links</h2>
-        <table id="link-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Long URL</th>
-              <th>Short URL</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Links will be populated here -->
-          </tbody>
-        </table>
-        <div class="buttons">
-          <button onclick="sortLinks()">Sort Links</button>
-        </div>
+        <h2>Layer For Hierarchical Design</h2>
       </div>
     </section>
-    <section id="import-export" class="section hidden">
+    <section id="RuleManager" class="section hidden">
       <div class="container">
-        <h2>Import/Export JSON</h2>
-        <div class="form-group">
-          <label for="json-input">JSON Input:</label>
-          <textarea id="json-input" placeholder="Paste your JSON here..."></textarea>
-        </div>
-        <div class="form-group">
-          <button onclick="importJson()">Import</button>
-        </div>
-        <div class="form-group">
-          <label for="json-output">Exported JSON:</label>
-          <textarea id="json-output" readonly></textarea>
-          <button onclick="exportJson()">Export</button>
-        </div>
+        <h2>Rule Design</h2>
       </div>
     </section>
+    <section id="ItemManager" class="section hidden">
+      <div class="container">
+        <h2>Manage By Items</h2>
+      </div>
+    </section>
+    <section id="OptimizeManager" class="section hidden">
+      <div class="container">
+        <h2>Optimize Benchmark</h2>
+      </div>
+    </section>
+    <section id="SimulateManager" class="section hidden">
+      <div class="container">
+        <h2>Simulate Visit</h2>
+      </div>
+    </section>
+    <section id="ImportManager" class="section hidden">
+      <div class="container">
+        <h2>Import .JumpTo.Json</h2>
+      </div>
+    </section>
+    <section id="ExportManager" class="section hidden">
+      <div class="container">
+        <h2>Export .JumpTo.Json</h2>
+      </div>
+    </section>
+    <section id="SettingManager" class="section hidden">
+      <div class="container">
+        <h2>JumpTo Settings</h2>
+      </div>
+    </section>
+    <section id="DeployManager" class="section hidden">
+      <div class="container">
+        <h2>Deploy JumpTo</h2>
+      </div>
+    </section>
+
     <footer>
       <div class="container">
         <span class="logoWordmark">
