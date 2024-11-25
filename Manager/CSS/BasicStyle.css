@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: Emoji;
   src: local("Apple Color Emoji"), local("Segoe UI Emoji"),
@@ -10,6 +9,7 @@ body {
     Emoji, Helvetica, Arial, sans-serif;
   letter-spacing: -0.05em;
   font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -67,6 +67,11 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
+  background-color: #b4c7e7;
+  /*   color: #f4f4f4; */
+}
+
+header nav ul li a.active {
   background-color: #203864;
   color: #f4f4f4;
 }
@@ -87,22 +92,43 @@ main {
 }
 
 .section {
-  padding: 1em 2em;
+  padding: 0;
   color: #000000;
-  height: 100%;
-  display: none; /* Hidden by default */
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  overflow: hidden;
+  /*   display: none; */
+  /* Hidden by default */
+  transition: opacity 0.6s ease;
+}
+
+.section .prepare {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .section.hidden {
-  display: none;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
 }
 
 .section.visible {
+  padding: 1em 2em;
+  opacity: 1;
+  height: 100%;
+  overflow: auto;
   display: block;
-}
-
-.section.prepare{
-  display:flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;align-content: center;
+  visibility: visible;
 }
 
 h2 {
@@ -189,7 +215,6 @@ footer .container {
   flex-wrap: wrap;
   align-content: center;
 }
-
 
 .scrollable-container {
   --show-top-mask: 0;
