@@ -18,21 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let links = [];
   let currentLinkId = 1; // 用于生成短链接ID
 
-  // Function to show a specific section
-  function showSection(sectionId) {
-    const sections = document.querySelectorAll(".section");
-    sections.forEach((section) => {
-      section.classList.remove("visible");
-      section.classList.add("hidden");
-    });
-
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.classList.remove("hidden");
-      targetSection.classList.add("visible");
-    }
-  }
-
   // Function to update the link table
   function updateLinkTable() {
     const tbody = document.getElementById("link-table").getElementsByTagName("tbody")[0];
