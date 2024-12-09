@@ -332,6 +332,7 @@ async function matchupBlock() {
 function main() {
     if (params.paramEntries.length == 0) {
         ReplaceSiteTitle("JumpTo 在这里，安全着陆", true)
+        document.body.classList.add("cubeBg");
         ShowElement("Blank", false);
         ShowElement("HeaderLogo", false);
         ShowElement("JumpTo", true);
