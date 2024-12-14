@@ -13,6 +13,14 @@
       <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function () {
             });
+            document.addEventListener("loaded", function () {
+                  let applyChannleHash = window.location.hash;
+    if (applyChannleHash === "#申报通道") {
+        window.requestAnimationFrame(function() {
+            window.scrollTo(0, window.pageYOffset - 36);
+        });
+    }
+            });
       </script>
 </head>
 
