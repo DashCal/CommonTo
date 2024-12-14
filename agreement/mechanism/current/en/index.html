@@ -13,7 +13,7 @@
       <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function () {
                   let applyChannelHash = window.location.hash;
-                  if (applyChannelHash === "#application-channel") {
+                  if (applyChannelHash.includes("#application-channel")) {
                         window.requestAnimationFrame(function() {
                               window.scrollTo(0, window.pageYOffset - 36);
                         });
