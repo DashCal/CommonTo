@@ -116,7 +116,8 @@ body {
     -webkit-tap-highlight-color: transparent;
     letter-spacing: -.01em;
     font-weight: 500;
-    transition: all .1s ease
+    transition: all .1s ease;
+    scroll-behavior: smooth;
 }
 
 .cubeBg {
