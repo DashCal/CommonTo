@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="https://dist.localwu.top/CSS/Markdown/BasicMarkdown.css?v=202411051930">
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
-        });
+                  let applyChannelHash = window.location.hash;
+                  if (applyChannelHash === "#申报通道") {
+                        window.requestAnimationFrame(function() {
+                              window.scrollTo(0, window.pageYOffset - 36);
+                        });
+                  }
+            });
     </script>
 </head>
 
