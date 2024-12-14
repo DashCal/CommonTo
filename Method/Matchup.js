@@ -1,3 +1,21 @@
+function PCS() {
+    let body = document.body;
+    if (body.classList.contains("darkMode")) {
+        body.classList.remove("darkMode");
+    }
+    if (body.classList.contains("lightMode")) {
+        body.classList.remove("lightMode");
+    }
+    if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        body.classList.add("darkMode");
+    } else {
+        body.classList.add("lightMode");
+    }
+}
+
 class URLParameters {
     constructor(url) {
         const queryString = url.indexOf("?") !== -1 ? url.split("?")[1] : "";
@@ -121,11 +139,11 @@ function ShowElement(Id, Or) {
 }
 
 let goStraightUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
-let primaryUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL1ByaW1hcnlSZWxhdGlvbnMuanNvbg==");
-let minorUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL01pbm9yUmVsYXRpb25zLmpzb24=");
-let commonUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0NvbW1vblJlbGF0aW9ucy5qc29u");
-let allowUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0FsbG93UmVsYXRpb25zLmpzb24=");
-let blockUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9SdWxlL0Jsb2NrUmVsYXRpb25zLmpzb24=");
+let primaryUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9ydWxlL3ByaW1hcnktcmVsYXRpb25zLmpzb24=");
+let minorUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9ydWxlL21pbm9yLXJlbGF0aW9ucy5qc29u");
+let commonUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9ydWxlL2NvbW1vbi1yZWxhdGlvbnMuanNvbg==");
+let allowUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9ydWxlL2FsbG93LXJlbGF0aW9ucy5qc29u");
+let blockUrl = DBSF("aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9ydWxlL2Jsb2NrLXJlbGF0aW9ucy5qc29u");
 let defaultUrl = DBSF("aHR0cHM6Ly9sb2NhbHd1LnRvcA==");
 let params = new URLParameters(window.location.href);
 // console.log(params);

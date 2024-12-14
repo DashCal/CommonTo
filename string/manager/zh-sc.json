@@ -1,0 +1,45 @@
+{
+    "Project": "JumpTo",
+    "Prefix": "to",
+    "Suffix": "/",
+    "SearchBar": true,
+    "GoHome": true,
+    "GoToRoot": true,
+    "ExtraInfo": "/",
+    "ExtraPic": "/",
+    "Language": "Ch",
+    "Strings": [
+        {
+            "discribe": "The Project Name",
+            "id": "/",
+            "class": "ProjectName",
+            "content": "JumpTo",
+            "status": true,
+            "b64": "/"
+        },
+        {
+            "discribe": "The Slogan In English",
+            "id": "/",
+            "class": "SloganEn",
+            "content": "Passion Drives.",
+            "status": true,
+            "b64": "/"
+        },
+        {
+            "discribe": "The Slogan In Chinese",
+            "id": "/",
+            "class": "SloganCh",
+            "content": "热爱使燃。",
+            "status": true,
+            "b64": "/"
+        },
+        {
+            "discribe": "The General Copyright Announcement",
+            "id": "/",
+            "class": "Copyright",
+            "content": "Copyright @ 2020-$[CurrentYear]# LocalWu. LocalWu Content Matrix. All Rights Reserved.",
+            "status": true,
+            "b64": "/"
+        }
+    ]
+}
