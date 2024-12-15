@@ -67,14 +67,51 @@
             <br />
             <span class="">🎈 跳转控制 | 🏷️ 活链标签 | 📈 数据统计</span>
             <br />
-            <span class="attention">Based On The Open-Source Project <strong style="cursor: pointer;"
-                    onclick="DST(DBSF('aHR0cHM6Ly9naXRodWIuY29tL2xvY2Fsd3UvSnVtcFRv'))">JumpTo</strong></span>
+            <!-- <span class="attention">Based On The Open-Source Project <strong style="cursor: pointer;"
+                    onclick="DST(DBSF('aHR0cHM6Ly9naXRodWIuY29tL2xvY2Fsd3UvSnVtcFRv'))">JumpTo</strong></span> -->
             <span class="attention">基于开源项目 <strong style="cursor: pointer;"
                     onclick="DST(DBSF('aHR0cHM6Ly9naXRodWIuY29tL2xvY2Fsd3UvSnVtcFRv'))">JumpTo</strong>
                 构建</span>
             <br />
             <div class="goStraight go2Btn" onclick="DST(DBSF('aHR0cHM6Ly90by5sb2NhbHd1LnRvcC9qdW1wLXRv'))">
                 <span class="">Learn More 了解更多 →</span>
+            </div>
+            <br />
+            <div id="GoToer" class="goToer" style="">
+                <input placeholder="准备前往" type="text" id="GoToBox" class="goToCpn goToBox" name="LocJumpToInput"
+                    spellcheck="false" size="12" style="
+                        border-radius: .5em 0 0 .5em;
+                        outline: 0;
+                        cursor: text;
+                        line-height: 1.2em;
+                        font-family: Inter,Noto_Sans,PingFang SC,'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;
+                        font-feature-settings: 'liga' 1,'calt' 1;
+                        font-weight: 600;
+                        background-color: var(--button-color);
+                        color: var(--text-color);
+                        font-size: 1em;
+                        margin-top: 1em;
+                        padding: .5em;
+                        border: .2em solid var(--button-border-color);
+                    ">
+                <input type="submit" id="GoToSubmit" class="searchCpn searchBtn emojiStroke" name="LocJumpToSubmit"
+                    value="→" style="
+                        border-radius: 0 .5em .5em 0;
+                        margin-left: -.5em;
+                        outline: 0;
+                        filter: grayscale(100%) contrast(100%);
+                        line-height: 1.2em;
+                        font-family: Inter,Noto_Sans,PingFang SC,'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;
+                        font-feature-settings: 'liga' 1,'calt' 1;
+                        font-weight: 600;
+                        background-color: var(--button-color);
+                        color: var(--text-color);
+                        font-size: 1em;
+                        margin-top: 1em;
+                        padding: .5em;
+                        border: .2em solid var(--button-border-color);
+                        cursor: pointer;
+                    ">
             </div>
         </div>
         <div id="Straight" class="center straight none">
@@ -166,7 +203,7 @@
         </div>
     </div>
     </div>
-    <script src="https://to.localwu.top/method/matchup.js?v=202412150125"></script>
+    <script src="/method/matchup.js?v=202412150125"></script>
 </body>
 
 </html>

@@ -362,5 +362,19 @@ function main() {
 function onloads() {
     PCS();
     main();
+    document.getElementById('GoToSubmit').addEventListener('click', function (event) {
+        event.preventDefault();
+        var goToBox = document.getElementById('GoToBox');
+        var placeholderText = goToBox.placeholder;
+
+        if (goToBox.value.trim() === '') {
+            goToBox.placeholder = "！请输入跳转参数";
+            setTimeout(function () {
+                goToBox.placeholder = placeholderText;
+            }, 2000);
+        } else {
+            window.location.href = 'https://to.localwu.top?' + encodeURIComponent(goToBox.value);
+        }
+    });
 }
 window.onload = onloads;
