@@ -10,14 +10,17 @@
       <link rel="stylesheet" href="https://dist.localwu.top/CSS/Font/BasicFonts.css?v=202411021300">
       <link rel="stylesheet" href="http://dist.localwu.top/Font/JetBrains/Mono/JetBrains_Mono.css">
       <link rel="stylesheet" href="https://dist.localwu.top/CSS/Markdown/BasicMarkdown.css?v=202411051930">
+      <style>
+            body {scroll-behavior: smooth;}
+      </style>
       <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function () {
-                  let applyChannelHash = window.location.hash;
-                  if (applyChannelHash.includes("#application-channel")) {
-                        window.requestAnimationFrame(function () {
-                              window.scrollTo(0, window.pageYOffset - 50);
-                        });
-                  }
+                  // let applyChannelHash = window.location.hash;
+                  // if (applyChannelHash.includes("#application-channel")) {
+                  //       window.requestAnimationFrame(function () {
+                  //             window.scrollTo(0, window.pageYOffset - 50);
+                  //       });
+                  // }
             });
       </script>
 </head>
@@ -147,7 +150,10 @@
                   <li>The ICP registration number and National Internet Connection Registration Number (if any) must be
                         provided; foreign websites do not need to provide these.</li>
             </ol>
-            <h2 id="application-channel">Application Channel </h2>
+            <div style="position:relative">
+                  <div id="application-channel" style="position:absolute; top:-5em"> </div>
+                  <h2 id="apply-for-access">Apply for Access </h2>
+            </div>
             <sup>
                   <p align="right" style="font-weight:600;">
                         <a href="..\#申报通道">中文版本 (Chinese Version) →</a>
